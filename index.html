@@ -1,845 +1,214 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Henrietta Project</title>
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;900&family=Raleway:ital,wght@0,300;0,400;0,600;1,300&display=swap');
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Henrietta Project 🤣😭🤯</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,600;1,9..144,300&family=IBM+Plex+Sans:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#070a18;--deep:#0e1430;--plate:#1b2452;--light:#e9eefc;--mute:#9aa6cf;--gold:#ffc15e;--cyan:#7fe0ff;color-scheme:dark}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--ink);color:var(--light);font:17px/1.65 "IBM Plex Sans",system-ui,sans-serif}
+#sky{position:fixed;inset:0;width:100%;height:100%;z-index:-1}
+main{max-width:1040px;margin:0 auto;padding:0 22px 80px;position:relative;z-index:1;overflow-x:clip}
+h1,h2,h3{font-family:Fraunces,Georgia,serif;font-weight:300;line-height:1.1;margin:0}
+h1{font-size:clamp(2.6rem,7.5vw,5.8rem);letter-spacing:-.02em;padding-top:12vh}
+h1.spot{background:radial-gradient(480px circle at var(--mx,30%) var(--my,50%),#fff 0,#b8c4ee 55%,#7585c0 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+h1 em{-webkit-text-fill-color:var(--gold);color:var(--gold);font-style:italic;text-shadow:0 0 40px rgba(255,193,94,.5)}
+h2{font-size:clamp(1.8rem,4vw,2.8rem);margin-bottom:.5em}
+.lede{max-width:56ch;color:var(--mute);font-size:1.15rem;margin:1.2em 0 2em}
+section{margin-top:96px}
+p{max-width:62ch}
+#neb{position:fixed;inset:-20%;z-index:-2;pointer-events:none;filter:blur(36px);background:radial-gradient(40% 35% at 20% 25%,rgba(115,60,210,.38),transparent 70%),radial-gradient(35% 40% at 80% 20%,rgba(0,160,210,.28),transparent 70%),radial-gradient(45% 40% at 65% 80%,rgba(210,60,150,.2),transparent 70%),radial-gradient(30% 30% at 15% 85%,rgba(255,170,70,.13),transparent 70%);animation:drift 40s ease-in-out infinite alternate}
+@keyframes drift{from{rotate:-4deg;scale:1}to{rotate:5deg;scale:1.15}}
+#glow{position:fixed;left:-280px;top:-280px;width:560px;height:560px;border-radius:50%;pointer-events:none;z-index:2;mix-blend-mode:screen;opacity:0;transition:opacity .5s;background:radial-gradient(circle,rgba(127,224,255,.14),rgba(255,193,94,.05) 42%,transparent 70%)}
+.rv{opacity:0;transition:opacity 1s ease,transform 1s cubic-bezier(.2,.7,.2,1)}
+.rv.l{transform:translateX(-80px)}.rv.r{transform:translateX(80px)}
+.rv.in{opacity:1;transform:none}
+body.near .hl:hover{background-image:radial-gradient(320px circle at var(--mx) var(--my),rgba(127,224,255,.13),transparent 70%)}
+body.near .hl:hover summary{color:var(--gold)}
+section.right h2,section.right p{margin-left:auto;text-align:right}
+.tl{list-style:none;padding:0;margin:40px 0 0;position:relative}
+.tl::before{content:"";position:absolute;left:50%;top:0;bottom:0;width:1px;background:linear-gradient(180deg,transparent,#5a68c0 8%,#5a68c0 92%,transparent)}
+.tl li{position:relative;width:50%;padding:14px 38px;margin-bottom:6px}
+.tl li:nth-child(odd){text-align:right}
+.tl li:nth-child(even){margin-left:50%}
+.tl li::before{content:"";position:absolute;top:26px;width:11px;height:11px;border-radius:50%;background:var(--gold);box-shadow:0 0 14px var(--gold)}
+.tl li:nth-child(odd)::before{right:-5.5px}
+.tl li:nth-child(even)::before{left:-5.5px}
+.tl time{font:italic 600 1.35rem Fraunces,Georgia,serif;color:var(--gold);display:block}
+@media (max-width:760px){.tl::before{left:5px}.tl li,.tl li:nth-child(even){width:100%;margin-left:0;text-align:left;padding:12px 0 12px 30px}.tl li:nth-child(odd)::before,.tl li:nth-child(even)::before{left:0;right:auto}}
+.qa{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,440px),1fr));gap:0 44px;margin-top:30px}
+details{border-top:1px solid #34407a;padding:16px 14px}
+summary{cursor:pointer;list-style:none;font:400 1.35rem/1.25 Fraunces,Georgia,serif;display:flex;justify-content:space-between;gap:16px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";color:var(--cyan);font-size:1.5rem;line-height:1;transition:transform .25s}
+details[open] summary::after{transform:rotate(45deg)}
+summary:focus-visible,button:focus-visible{outline:2px solid var(--cyan);outline-offset:4px}
+details p{color:#cfd8f5;margin:.8em 0 0}
+.big{color:var(--gold);font:600 1.1em Fraunces,Georgia,serif}
+button{background:none;border:1px solid var(--cyan);color:var(--cyan);padding:7px 16px;border-radius:2px;font:inherit;font-size:.9rem;cursor:pointer;margin-top:12px}
+button:hover{background:rgba(127,224,255,.12)}
+canvas#ori{display:block;width:260px;max-width:100%;margin-top:14px;border:1px solid #34407a;background:rgba(7,10,24,.6)}
+footer{margin-top:90px;color:var(--mute);font-size:.88rem}
 
-    :root {
-      --gold: #f5c842;
-      --deep-blue: #0a0e2a;
-      --nebula-purple: #6b3fa0;
-      --nebula-pink: #c9406a;
-      --star-white: #e8f4fd;
-      --glass-bg: rgba(255,255,255,0.04);
-      --glass-border: rgba(255,255,255,0.12);
-    }
-
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-
-    html { scroll-behavior: smooth; }
-
-    body {
-      background: var(--deep-blue);
-      color: var(--star-white);
-      font-family: 'Raleway', sans-serif;
-      overflow-x: hidden;
-      min-height: 100vh;
-    }
-
-    #starCanvas {
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      z-index: 0;
-      pointer-events: none;
-    }
-
-    .nebula {
-      position: fixed;
-      border-radius: 50%;
-      filter: blur(120px);
-      opacity: 0.18;
-      pointer-events: none;
-      z-index: 0;
-    }
-    .nebula-1 { width: 700px; height: 700px; background: var(--nebula-purple); top: -200px; left: -200px; animation: drift 30s ease-in-out infinite alternate; }
-    .nebula-2 { width: 600px; height: 600px; background: var(--nebula-pink);   bottom: -200px; right: -100px; animation: drift 22s ease-in-out infinite alternate-reverse; }
-    .nebula-3 { width: 400px; height: 400px; background: #1a6e9e; top: 50%; left: 40%; animation: drift 18s ease-in-out infinite alternate; }
-
-    @keyframes drift {
-      from { transform: translate(0, 0) scale(1); }
-      to   { transform: translate(60px, 40px) scale(1.08); }
-    }
-
-    #content { position: relative; z-index: 1; }
-
-    .hero {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 2rem;
-      position: relative;
-    }
-
-    .hero-eyebrow {
-      font-family: 'Cinzel', serif;
-      font-size: 0.85rem;
-      letter-spacing: 0.4em;
-      color: var(--gold);
-      text-transform: uppercase;
-      margin-bottom: 1.5rem;
-      opacity: 0;
-      animation: fadeUp 1s ease forwards 0.3s;
-    }
-
-    .hero h1 {
-      font-family: 'Cinzel', serif;
-      font-size: clamp(2.8rem, 8vw, 7rem);
-      font-weight: 900;
-      line-height: 1.05;
-      background: linear-gradient(135deg, #ffffff 0%, var(--gold) 40%, #e896ff 80%, #7ec8e3 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      opacity: 0;
-      animation: fadeUp 1s ease forwards 0.6s;
-    }
-
-    .hero-sub {
-      margin-top: 1.5rem;
-      font-size: clamp(1rem, 2.5vw, 1.35rem);
-      font-weight: 300;
-      font-style: italic;
-      color: rgba(232,244,253,0.7);
-      max-width: 600px;
-      opacity: 0;
-      animation: fadeUp 1s ease forwards 0.9s;
-    }
-
-    .scroll-cue {
-      position: absolute;
-      bottom: 2.5rem;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 0.5rem;
-      opacity: 0;
-      animation: fadeUp 1s ease forwards 1.4s;
-    }
-    .scroll-cue span { font-size: 0.7rem; letter-spacing: 0.3em; color: var(--gold); text-transform: uppercase; }
-    .scroll-arrow {
-      width: 24px; height: 24px;
-      border-right: 2px solid var(--gold);
-      border-bottom: 2px solid var(--gold);
-      transform: rotate(45deg);
-      animation: bounce 1.5s ease-in-out infinite;
-    }
-    @keyframes bounce { 0%,100%{transform:rotate(45deg) translateY(0)} 50%{transform:rotate(45deg) translateY(6px)} }
-
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(30px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-
-    section {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 5rem 2rem;
-    }
-
-    .section-label {
-      font-family: 'Cinzel', serif;
-      font-size: 0.72rem;
-      letter-spacing: 0.45em;
-      color: var(--gold);
-      text-transform: uppercase;
-      margin-bottom: 0.6rem;
-      opacity: 0.85;
-    }
-
-    section h2 {
-      font-family: 'Cinzel', serif;
-      font-size: clamp(1.8rem, 4vw, 2.8rem);
-      font-weight: 600;
-      margin-bottom: 1.8rem;
-      line-height: 1.2;
-    }
-
-    .gradient-text {
-      background: linear-gradient(90deg, #ffffff, var(--gold));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-
-    section p {
-      font-size: 1.05rem;
-      line-height: 1.85;
-      color: rgba(232,244,253,0.82);
-      margin-bottom: 1.2rem;
-      font-weight: 300;
-    }
-
-    section p strong {
-      color: var(--star-white);
-      font-weight: 600;
-    }
-
-    .card {
-      background: var(--glass-bg);
-      border: 1px solid var(--glass-border);
-      border-radius: 20px;
-      padding: 2rem 2.4rem;
-      backdrop-filter: blur(12px);
-      margin-bottom: 1.5rem;
-      transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
-    }
-    .card:hover {
-      border-color: rgba(245,200,66,0.35);
-      transform: translateY(-4px);
-      box-shadow: 0 20px 50px rgba(0,0,0,0.4), 0 0 30px rgba(245,200,66,0.06);
-    }
-
-    .pullquote {
-      border-left: 3px solid var(--gold);
-      padding: 1.2rem 2rem;
-      margin: 2.5rem 0;
-      font-size: 1.2rem;
-      font-style: italic;
-      color: rgba(232,244,253,0.75);
-      line-height: 1.7;
-      position: relative;
-    }
-    .pullquote::before {
-      content: '\201C';
-      font-family: 'Cinzel', serif;
-      font-size: 5rem;
-      color: var(--gold);
-      opacity: 0.18;
-      position: absolute;
-      top: -1rem;
-      left: 0.5rem;
-      line-height: 1;
-    }
-
-    .stat-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 1.2rem;
-      margin: 2rem 0;
-    }
-    .stat-card {
-      background: var(--glass-bg);
-      border: 1px solid var(--glass-border);
-      border-radius: 16px;
-      padding: 1.6rem 1.4rem;
-      text-align: center;
-      backdrop-filter: blur(10px);
-      transition: transform 0.3s, border-color 0.3s;
-    }
-    .stat-card:hover { transform: scale(1.04); border-color: rgba(200,130,255,0.4); }
-    .stat-num {
-      font-family: 'Cinzel', serif;
-      font-size: 2rem;
-      font-weight: 900;
-      background: linear-gradient(135deg, var(--gold), #e896ff);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      display: block;
-      margin-bottom: 0.4rem;
-    }
-    .stat-label {
-      font-size: 0.82rem;
-      letter-spacing: 0.12em;
-      color: rgba(232,244,253,0.6);
-      text-transform: uppercase;
-    }
-
-    .timeline { position: relative; padding-left: 2.5rem; margin: 2rem 0; }
-    .timeline::before {
-      content: '';
-      position: absolute;
-      left: 0.65rem;
-      top: 0; bottom: 0;
-      width: 2px;
-      background: linear-gradient(to bottom, var(--gold), var(--nebula-pink), transparent);
-    }
-    .tl-item {
-      position: relative;
-      margin-bottom: 2rem;
-    }
-    .tl-item::before {
-      content: '';
-      position: absolute;
-      left: -2.05rem;
-      top: 0.35rem;
-      width: 10px; height: 10px;
-      border-radius: 50%;
-      background: var(--gold);
-      box-shadow: 0 0 12px var(--gold);
-    }
-    .tl-year {
-      font-family: 'Cinzel', serif;
-      font-size: 0.8rem;
-      color: var(--gold);
-      letter-spacing: 0.2em;
-      margin-bottom: 0.3rem;
-    }
-    .tl-item p { margin-bottom: 0; font-size: 0.97rem; }
-
-    .constellation-wrap {
-      display: flex;
-      justify-content: center;
-      margin: 2.5rem 0;
-    }
-    .constellation-wrap svg .star-dot {
-      fill: var(--gold);
-      filter: drop-shadow(0 0 5px var(--gold));
-      animation: pulse-star 2.5s ease-in-out infinite;
-    }
-    @keyframes pulse-star {
-      0%,100% { opacity: 1; r: 4; }
-      50% { opacity: 0.5; r: 6; }
-    }
-    .constellation-wrap svg .conn-line {
-      stroke: rgba(245,200,66,0.35);
-      stroke-width: 1.2;
-      stroke-dasharray: 6 4;
-    }
-
-    .divider {
-      width: 80px;
-      height: 2px;
-      background: linear-gradient(90deg, transparent, var(--gold), transparent);
-      margin: 0 auto 1.5rem;
-    }
-
-    .comp-bar-wrap { margin: 2rem 0; }
-    .comp-row {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      margin-bottom: 0.9rem;
-    }
-    .comp-label { width: 110px; font-size: 0.85rem; color: rgba(232,244,253,0.7); }
-    .comp-bar-bg {
-      flex: 1;
-      height: 8px;
-      background: rgba(255,255,255,0.06);
-      border-radius: 99px;
-      overflow: hidden;
-    }
-    .comp-bar {
-      height: 100%;
-      border-radius: 99px;
-      animation: barGrow 1.4s ease forwards;
-      transform-origin: left;
-    }
-    @keyframes barGrow { from { width: 0 !important; } }
-    .comp-pct { font-size: 0.82rem; color: var(--gold); width: 48px; text-align: right; }
-
-    details {
-      border: 1px solid var(--glass-border);
-      border-radius: 14px;
-      margin-bottom: 1rem;
-      overflow: hidden;
-      transition: border-color 0.3s;
-    }
-    details[open] { border-color: rgba(245,200,66,0.4); }
-    summary {
-      padding: 1.2rem 1.6rem;
-      cursor: pointer;
-      font-family: 'Cinzel', serif;
-      font-size: 0.97rem;
-      font-weight: 600;
-      list-style: none;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background: var(--glass-bg);
-      backdrop-filter: blur(10px);
-      user-select: none;
-    }
-    summary::-webkit-details-marker { display: none; }
-    summary::after {
-      content: '+';
-      font-size: 1.4rem;
-      color: var(--gold);
-      transition: transform 0.3s;
-    }
-    details[open] summary::after { transform: rotate(45deg); }
-    .acc-body {
-      padding: 1.4rem 1.6rem;
-      font-size: 0.98rem;
-      line-height: 1.8;
-      color: rgba(232,244,253,0.78);
-      background: rgba(255,255,255,0.02);
-    }
-
-    footer {
-      text-align: center;
-      padding: 4rem 2rem;
-      font-size: 0.78rem;
-      color: rgba(232,244,253,0.3);
-      letter-spacing: 0.15em;
-      position: relative;
-      z-index: 1;
-    }
-    footer span { color: var(--gold); }
-
-    .reveal {
-      opacity: 0;
-      transform: translateY(40px);
-      transition: opacity 0.8s ease, transform 0.8s ease;
-    }
-    .reveal.visible {
-      opacity: 1;
-      transform: none;
-    }
-
-    nav {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 100;
-      display: flex;
-      justify-content: center;
-      gap: 2rem;
-      padding: 1rem 2rem;
-      background: rgba(10,14,42,0.6);
-      backdrop-filter: blur(16px);
-      border-bottom: 1px solid var(--glass-border);
-    }
-    nav a {
-      font-family: 'Cinzel', serif;
-      font-size: 0.72rem;
-      letter-spacing: 0.2em;
-      color: rgba(232,244,253,0.6);
-      text-decoration: none;
-      text-transform: uppercase;
-      transition: color 0.3s;
-    }
-    nav a:hover { color: var(--gold); }
-
-    @media (max-width: 600px) {
-      nav { gap: 1rem; flex-wrap: wrap; padding: 0.8rem 1rem; }
-      nav a { font-size: 0.6rem; }
-    }
-  </style>
+.sum{margin-top:90px;text-align:center}
+#sm{position:relative;font:italic 300 1.7rem Fraunces,Georgia,serif;letter-spacing:.01em;color:var(--light);background:linear-gradient(180deg,rgba(255,193,94,.12),rgba(255,193,94,.02));border:1px solid var(--gold);padding:18px 54px 18px 70px;margin:0;border-radius:2px;box-shadow:0 0 34px rgba(255,193,94,.2),inset 0 0 22px rgba(255,193,94,.08);transition:box-shadow .4s,color .3s}
+#sm::before{content:"";position:absolute;left:28px;top:50%;width:20px;height:20px;margin-top:-10px;background:var(--gold);clip-path:polygon(50% 0,60% 40%,100% 50%,60% 60%,50% 100%,40% 60%,0 50%,40% 40%);filter:drop-shadow(0 0 6px var(--gold));transition:transform .6s}
+#sm::after{content:"";position:absolute;inset:4px;border:1px solid rgba(127,224,255,.18);pointer-events:none}
+#sm:hover{color:var(--gold);box-shadow:0 0 54px rgba(255,193,94,.38),inset 0 0 28px rgba(255,193,94,.14)}
+#sm[aria-expanded=true]::before{transform:rotate(135deg) scale(1.2)}
+#smp{display:grid;grid-template-rows:0fr;transition:grid-template-rows .8s cubic-bezier(.2,.7,.2,1)}
+#smp.open{grid-template-rows:1fr}
+#smp>div{overflow:hidden;text-align:left}
+.sbox{position:relative;margin-top:34px;border:1px solid #3a4580;background-color:rgba(10,15,40,.72);backdrop-filter:blur(8px);padding:36px 42px 18px}
+.sbox::before{content:"";position:absolute;inset:6px;border:1px solid rgba(127,224,255,.15);pointer-events:none}
+.sbox h2{font-size:clamp(1.8rem,4vw,2.6rem);margin-bottom:.7em}
+.sbox ul{list-style:none;margin:0;padding:0;position:relative;max-width:none}
+.sbox ul::before{content:"";position:absolute;left:5px;top:6px;bottom:6px;width:1px;background:linear-gradient(180deg,transparent,#5a68c0 6%,#5a68c0 94%,transparent)}
+.sbox li{position:relative;margin:0;padding:12px 0 14px 34px;color:#cfd8f5;max-width:72ch;opacity:0;transform:translateX(-60px);transition:opacity .8s ease,transform .8s cubic-bezier(.2,.7,.2,1)}
+.sbox li:nth-child(even){transform:translateX(60px)}
+.sbox li::before{content:"";position:absolute;left:0;top:21px;width:11px;height:11px;border-radius:50%;background:var(--gold);box-shadow:0 0 14px var(--gold)}
+.sbox strong{display:block;font:italic 600 1.3rem Fraunces,Georgia,serif;color:var(--gold);margin-bottom:2px}
+#smp.open .sbox li{opacity:1;transform:none;transition-delay:calc(var(--i)*110ms + 350ms)}
+@media (max-width:760px){.sbox{padding:28px 20px 10px}#sm{font-size:1.4rem;padding:16px 36px 16px 60px}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}#neb{animation:none}.rv{opacity:1;transform:none;transition:none}}
+</style>
 </head>
 <body>
+<div id="neb" aria-hidden="true"></div><div id="glow" aria-hidden="true"></div>
+<canvas id="sky" aria-hidden="true"></canvas>
+<main>
+<header>
+<h1 class="spot">MY Henrietta Swan Leavitt <em>project</em> </h1>
 
-<canvas id="starCanvas"></canvas>
+</header>
 
-<div class="nebula nebula-1"></div>
-<div class="nebula nebula-2"></div>
-<div class="nebula nebula-3"></div>
+<section>
+<h2>Who was Henrietta Leavitt?</h2>
+<p>She was an American astronomer who did some of the most important work in 20th-century astronomy while employed as a “computer,” a person hired to measure and calculate. Women were not allowed to run telescopes at Harvard then, but they could study the photographic plates.</p>
+<ol class="tl">
+<li><time>1868</time>Born July 4 in Lancaster, Massachusetts, the daughter of a Congregational minister.</li>
+<li><time>1892</time>Graduates from the Society for Collegiate Instruction of Women, which became Radcliffe College.</li>
+<li><time>1893</time>Starts at Harvard College Observatory as a volunteer. Around 1895 she is paid 30 cents an hour. An illness left her with progressive hearing loss.</li>
+<li><time>1902</time>Joins the staff under director Edward Pickering and leads the photographic brightness measurements. She sets up a standard scale of star magnitudes still used as a reference.</li>
+<li><time>1908</time>Publishes 1,777 variable stars found in the Magellanic Clouds. Over her career she finds about 2,400, more than half of all known at the time.</li>
+<li><time>1912</time>Shows that in the Small Magellanic Cloud, brighter variable stars take longer to pulse. This is the period–luminosity relation.</li>
+<li><time>1913–1924</time>Others calibrate her rule with nearby stars. Edwin Hubble then uses it to prove the Andromeda “nebula” is a separate galaxy far beyond the Milky Way.</li>
+<li><time>1921</time>Dies of cancer on December 12 in Cambridge, Massachusetts, at 53. A Swedish mathematician tried to nominate her for the Nobel Prize in 1925, not knowing she had died.</li>
+</ol>
+</section>
 
-<nav>
-  <a href="#henrietta">Henrietta</a>
-  <a href="#what-is-star">Stars</a>
-  <a href="#composition">Composition</a>
-  <a href="#numbers">Numbers</a>
-  <a href="#closest">Closest Star</a>
-  <a href="#twinkle">Twinkle</a>
-  <a href="#constellations">Constellations</a>
-  <a href="#faq">FAQ</a>
-</nav>
+<section class="right">
+<h2>Why her discovery mattered</h2>
+<p>All the stars in the Small Magellanic Cloud are about the same distance from us, so differences in how bright they looked meant real differences in power. Leavitt saw that for Cepheid stars, the longer the cycle, the more luminous the star. Once one Cepheid’s distance is known, every Cepheid becomes a measuring tape. Before this, nobody could reliably say how far away the faint fuzzy patches in the sky were. After it, the universe had a scale, and later the proof that it was expanding.</p>
+</section>
 
-<div id="content">
-
-  <div class="hero">
-    <p class="hero-eyebrow">A Journey Through the Cosmos</p>
-    <h1>Written<br>in Starlight</h1>
-    <p class="hero-sub">The life of Henrietta Swan Leavitt, the science of stars, and the infinite universe overhead.</p>
-    <div class="scroll-cue">
-      <span>Scroll</span>
-      <div class="scroll-arrow"></div>
-    </div>
-  </div>
-
-  <section id="henrietta">
-    <div class="reveal">
-      <p class="section-label">The Astronomer</p>
-      <h2 class="gradient-text">Henrietta Swan Leavitt</h2>
-      <div class="divider"></div>
-    </div>
-
-    <div class="card reveal">
-      <p>Born on <strong>July 4, 1868</strong>, in Lancaster, Massachusetts, Henrietta Swan Leavitt grew up in a world where women were largely excluded from scientific careers. She studied at Oberlin College and later at Radcliffe College (the women's affiliate of Harvard University), where she discovered a passion for astronomy.</p>
-      <p>After graduation, she volunteered at the <strong>Harvard College Observatory</strong>, and was eventually hired by the legendary astronomer Edward Charles Pickering as one of his "Human Computers" — a team of women tasked with analyzing photographic plates of stars.</p>
-    </div>
-
-    <div class="pullquote reveal">
-      It takes a remarkable person to reshape our understanding of the universe while being barred from even pointing a telescope.
-    </div>
-
-    <div class="card reveal">
-      <p>Leavitt suffered from severe hearing loss that worsened throughout her life. Despite this, she worked tirelessly — measuring the brightness of thousands of stars from photographic glass plates. In doing so, she discovered something that would <strong>fundamentally change astronomy forever</strong>.</p>
-    </div>
-
-    <div class="timeline reveal">
-      <div class="tl-item">
-        <p class="tl-year">1868</p>
-        <p>Born in Lancaster, Massachusetts to a Congregationalist minister's family.</p>
-      </div>
-      <div class="tl-item">
-        <p class="tl-year">1892</p>
-        <p>Graduated from Radcliffe College; begins volunteering at the Harvard College Observatory.</p>
-      </div>
-      <div class="tl-item">
-        <p class="tl-year">1902</p>
-        <p>Hired as a full-time staff member at the Observatory, earning 30 cents per hour.</p>
-      </div>
-      <div class="tl-item">
-        <p class="tl-year">1908</p>
-        <p>Publishes her initial findings on 1,777 variable stars in the Small Magellanic Cloud.</p>
-      </div>
-      <div class="tl-item">
-        <p class="tl-year">1912</p>
-        <p>Announces her landmark Period-Luminosity Relationship — the "Leavitt Law" — revolutionizing how we measure cosmic distances.</p>
-      </div>
-      <div class="tl-item">
-        <p class="tl-year">1921</p>
-        <p>December 12 — Henrietta Leavitt passes away from cancer at age 53, before she could be nominated for the Nobel Prize.</p>
-      </div>
-    </div>
-
-    <div class="card reveal">
-      <p><strong>The Leavitt Law (Period-Luminosity Relationship):</strong> Leavitt discovered that a class of pulsating stars called <em>Cepheid variables</em> had a precise, measurable relationship between how long they took to brighten and dim (their period) and how intrinsically bright they were (their luminosity). If you know a star's true brightness and can measure how bright it appears, you can calculate exactly how far away it is.</p>
-      <p>This gave astronomers a <strong>"standard candle"</strong> — a reliable yardstick to measure the universe. Edwin Hubble used Leavitt's law to prove that the Andromeda "nebula" was a separate galaxy millions of light-years away, fundamentally expanding humanity's conception of the cosmos. Her discovery underpins all modern cosmological distance measurements, including the calculation of the universe's age and rate of expansion.</p>
-    </div>
-  </section>
-
-  <section id="what-is-star">
-    <div class="reveal">
-      <p class="section-label">The Basics</p>
-      <h2 class="gradient-text">What Is a Star?</h2>
-      <div class="divider"></div>
-    </div>
-
-    <div class="card reveal">
-      <p>A <strong>star</strong> is an enormous, luminous ball of plasma held together by its own gravity. At its core, temperatures and pressures are so extreme that hydrogen atoms are crushed together in a process called <strong>nuclear fusion</strong> — the same reaction that powers a hydrogen bomb, but on a continuous, self-sustaining scale lasting billions of years.</p>
-      <p>This fusion converts hydrogen into helium, releasing tremendous amounts of energy as light and heat. That outward radiation pressure perfectly counterbalances the inward pull of gravity — a delicate equilibrium called <strong>hydrostatic equilibrium</strong> — keeping the star from collapsing under its own weight or flying apart.</p>
-    </div>
-
-    <div class="card reveal">
-      <p>Stars are born inside vast clouds of gas and dust called <strong>nebulae</strong>. When a region of a nebula becomes dense enough, gravity takes over, causing it to collapse inward. As it compresses, it heats up. When the core temperature reaches roughly <strong>10 million Kelvin</strong>, nuclear fusion ignites, and a star is born.</p>
-      <p>Stars live for millions to billions of years, and when they die, they return their material to space — seeding future generations of stars, planets, and eventually, life. As Carl Sagan famously said: <em>we are made of star stuff</em>.</p>
-    </div>
-  </section>
-
-  <section id="composition">
-    <div class="reveal">
-      <p class="section-label">Chemistry</p>
-      <h2 class="gradient-text">What Are Stars Made Of?</h2>
-      <div class="divider"></div>
-    </div>
-
-    <div class="card reveal">
-      <p>Stars are composed almost entirely of the two lightest elements in the universe — elements forged in the first moments after the Big Bang. The heavier elements were made later, inside stars themselves, and scattered through space when stars exploded.</p>
-    </div>
-
-    <div class="comp-bar-wrap reveal">
-      <div class="comp-row">
-        <span class="comp-label">Hydrogen</span>
-        <div class="comp-bar-bg"><div class="comp-bar" style="width:73%; background: linear-gradient(90deg, #f5c842, #e8aa20);"></div></div>
-        <span class="comp-pct">~73%</span>
-      </div>
-      <div class="comp-row">
-        <span class="comp-label">Helium</span>
-        <div class="comp-bar-bg"><div class="comp-bar" style="width:25%; background: linear-gradient(90deg, #e896ff, #b040e0);"></div></div>
-        <span class="comp-pct">~25%</span>
-      </div>
-      <div class="comp-row">
-        <span class="comp-label">Oxygen</span>
-        <div class="comp-bar-bg"><div class="comp-bar" style="width:0.77%; background: linear-gradient(90deg, #7ec8e3, #4aa8cc);"></div></div>
-        <span class="comp-pct">~0.77%</span>
-      </div>
-      <div class="comp-row">
-        <span class="comp-label">Carbon</span>
-        <div class="comp-bar-bg"><div class="comp-bar" style="width:0.29%; background: linear-gradient(90deg, #80e080, #40a040);"></div></div>
-        <span class="comp-pct">~0.29%</span>
-      </div>
-      <div class="comp-row">
-        <span class="comp-label">Other</span>
-        <div class="comp-bar-bg"><div class="comp-bar" style="width:1.5%; background: linear-gradient(90deg, #ff9966, #cc6633);"></div></div>
-        <span class="comp-pct">~1.5%</span>
-      </div>
-    </div>
-
-    <div class="card reveal">
-      <p>Those "other" elements — iron, neon, nitrogen, silicon, and more — were forged in the nuclear furnaces of earlier stars over billions of years. Every iron atom in your blood, every calcium atom in your bones, every carbon atom in your DNA was created inside a dying star. The atoms that make up everything you see around you were once the core of an ancient sun.</p>
-    </div>
-  </section>
-
-  <section id="numbers">
-    <div class="reveal">
-      <p class="section-label">Scale</p>
-      <h2 class="gradient-text">How Many Stars?</h2>
-      <div class="divider"></div>
-    </div>
-
-    <div class="stat-grid reveal">
-      <div class="stat-card">
-        <span class="stat-num">~5,000</span>
-        <span class="stat-label">Visible to naked eye (total sky)</span>
-      </div>
-      <div class="stat-card">
-        <span class="stat-num">~2,500</span>
-        <span class="stat-label">Visible from one hemisphere at once</span>
-      </div>
-      <div class="stat-card">
-        <span class="stat-num">300–400B</span>
-        <span class="stat-label">Stars in the Milky Way</span>
-      </div>
-      <div class="stat-card">
-        <span class="stat-num">2 Trillion</span>
-        <span class="stat-label">Galaxies in the observable universe</span>
-      </div>
-      <div class="stat-card">
-        <span class="stat-num">10²⁴</span>
-        <span class="stat-label">Estimated stars in the universe</span>
-      </div>
-    </div>
-
-    <div class="card reveal">
-      <p>On a perfectly clear, dark night — away from city light pollution — a human eye can see roughly <strong>2,500 stars</strong> at any given moment from one hemisphere. Across the entire sky (both hemispheres combined), about <strong>5,000 stars</strong> are bright enough to be seen without a telescope.</p>
-      <p>That sounds like a lot, but it's a breathtaking undercount. The Milky Way alone contains an estimated <strong>200–400 billion stars</strong>. And there are roughly <strong>2 trillion galaxies</strong> in the observable universe. The total estimated star count exceeds <strong>10²⁴</strong> — that's more stars than grains of sand on all of Earth's beaches combined.</p>
-    </div>
-  </section>
-
-  <section id="closest">
-    <div class="reveal">
-      <p class="section-label">Our Nearest Neighbor</p>
-      <h2 class="gradient-text">The Closest Star to Earth</h2>
-      <div class="divider"></div>
-    </div>
-
-    <div class="card reveal">
-      <p>The closest star to Earth is, of course, <strong>our own Sun</strong> — a perfectly average yellow dwarf star about <strong>93 million miles (150 million km)</strong> away. Light from the Sun reaches us in just about 8 minutes and 20 seconds.</p>
-      <p>The <em>closest star outside</em> our solar system is <strong>Proxima Centauri</strong>, a small red dwarf star that is part of the Alpha Centauri triple-star system. It sits approximately <strong>4.24 light-years away</strong> — roughly 25 trillion miles. Light from Proxima takes over four years to reach us. If we could travel at the speed of our fastest spacecraft, it would take over 70,000 years to get there.</p>
-    </div>
-
-    <div class="card reveal">
-      <p>Intriguingly, Proxima Centauri hosts at least two known exoplanets — <strong>Proxima b</strong> sits within the star's habitable zone, where liquid water could potentially exist. Whether life could survive there under the frequent stellar flares from this active red dwarf is one of astronomy's most exciting open questions.</p>
-    </div>
-
-    <div class="card reveal">
-      <p><strong>Is the Sun the largest star?</strong> Far from it. The Sun is remarkably average by cosmic standards. The largest known star is <strong>Stephenson 2-18</strong> (also called St2-18), a red hypergiant roughly <strong>2,150 times</strong> the radius of the Sun. If placed where the Sun is, its surface would extend past the orbit of Saturn. The Sun contains 99.8% of the mass of the entire solar system — yet it is a tiny speck compared to the true giants of the universe.</p>
-    </div>
-  </section>
-
-  <section id="twinkle">
-    <div class="reveal">
-      <p class="section-label">An Optical Phenomenon</p>
-      <h2 class="gradient-text">Why Do Stars Twinkle?</h2>
-      <div class="divider"></div>
-    </div>
-
-    <div class="card reveal">
-      <p>Stars twinkle — astronomers call it <strong>stellar scintillation</strong> — because of Earth's atmosphere. Starlight must travel through many layers of air with different temperatures, densities, and humidity levels. Each of these layers bends (refracts) light slightly differently, and since these atmospheric pockets are constantly moving and mixing, the path the light takes shifts rapidly and randomly.</p>
-      <p>To our eyes, this looks like the star is flickering, shimmering, or changing color. Stars near the horizon twinkle more intensely because their light travels through a thicker slice of atmosphere to reach us.</p>
-    </div>
-
-    <div class="card reveal">
-      <p><strong>Planets don't twinkle</strong> (much). Planets are close enough to appear as tiny discs rather than a single point — the atmospheric distortions across their visible disc average out, resulting in a steadier glow. This is a useful trick: a bright object that shimmers is a star; one that shines steadily is likely a planet.</p>
-      <p>From space — outside Earth's atmosphere — stars don't twinkle at all. The <em>Hubble Space Telescope</em> takes such sharp images precisely because it operates above the distorting atmosphere.</p>
-    </div>
-  </section>
-
-  <section id="constellations">
-    <div class="reveal">
-      <p class="section-label">Patterns in the Sky</p>
-      <h2 class="gradient-text">Constellations</h2>
-      <div class="divider"></div>
-    </div>
-
-    <div class="constellation-wrap reveal">
-      <svg width="320" height="300" viewBox="0 0 320 300" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Orion constellation diagram">
-        <line class="conn-line" x1="155" y1="40"  x2="195" y2="70"/>
-        <line class="conn-line" x1="155" y1="40"  x2="120" y2="70"/>
-        <line class="conn-line" x1="195" y1="70"  x2="210" y2="120"/>
-        <line class="conn-line" x1="120" y1="70"  x2="105" y2="120"/>
-        <line class="conn-line" x1="210" y1="120" x2="160" y2="135"/>
-        <line class="conn-line" x1="105" y1="120" x2="160" y2="135"/>
-        <line class="conn-line" x1="125" y1="148" x2="160" y2="135"/>
-        <line class="conn-line" x1="160" y1="148" x2="160" y2="135"/>
-        <line class="conn-line" x1="195" y1="148" x2="160" y2="135"/>
-        <line class="conn-line" x1="160" y1="148" x2="150" y2="190"/>
-        <line class="conn-line" x1="160" y1="148" x2="170" y2="190"/>
-        <line class="conn-line" x1="150" y1="190" x2="120" y2="240"/>
-        <line class="conn-line" x1="170" y1="190" x2="200" y2="240"/>
-        <line class="conn-line" x1="120" y1="240" x2="100" y2="265"/>
-        <line class="conn-line" x1="200" y1="240" x2="220" y2="265"/>
-        <circle class="star-dot" cx="155" cy="40"  r="5" style="animation-delay:0s"/>
-        <circle class="star-dot" cx="195" cy="70"  r="3.5" style="animation-delay:0.3s"/>
-        <circle class="star-dot" cx="120" cy="70"  r="3" style="animation-delay:0.6s"/>
-        <circle class="star-dot" cx="210" cy="120" r="5.5" style="animation-delay:0.2s"/>
-        <circle class="star-dot" cx="105" cy="120" r="3.5" style="animation-delay:0.9s"/>
-        <circle class="star-dot" cx="125" cy="148" r="3.5" style="animation-delay:0.4s"/>
-        <circle class="star-dot" cx="160" cy="148" r="3.5" style="animation-delay:0.7s"/>
-        <circle class="star-dot" cx="195" cy="148" r="3.5" style="animation-delay:0.1s"/>
-        <circle class="star-dot" cx="150" cy="190" r="3" style="animation-delay:0.5s"/>
-        <circle class="star-dot" cx="170" cy="190" r="3" style="animation-delay:0.8s"/>
-        <circle class="star-dot" cx="120" cy="240" r="4" style="animation-delay:0.35s"/>
-        <circle class="star-dot" cx="200" cy="240" r="5" style="animation-delay:0.65s"/>
-        <circle class="star-dot" cx="100" cy="265" r="3" style="animation-delay:0.15s"/>
-        <circle class="star-dot" cx="220" cy="265" r="3" style="animation-delay:0.55s"/>
-        <text x="240" y="45" fill="rgba(245,200,66,0.6)" font-family="Cinzel, serif" font-size="11" letter-spacing="2">ORION</text>
-        <text x="228" y="122" fill="rgba(245,200,66,0.45)" font-family="Raleway, sans-serif" font-size="9">Betelgeuse</text>
-        <text x="60"  y="244" fill="rgba(245,200,66,0.45)" font-family="Raleway, sans-serif" font-size="9">Rigel</text>
-        <text x="98" y="157" fill="rgba(245,200,66,0.45)" font-family="Raleway, sans-serif" font-size="9">Belt</text>
-      </svg>
-    </div>
-
-    <div class="card reveal">
-      <p>A <strong>constellation</strong> is a recognized pattern of stars in the night sky, named after mythological figures, animals, or objects. Officially, the International Astronomical Union (IAU) recognizes <strong>88 constellations</strong>, which together divide the entire celestial sphere into mapped regions — like countries on a map of the sky.</p>
-      <p>Most Western constellation names and stories come from ancient <strong>Greek and Roman mythology</strong>, though Babylonian, Egyptian, Chinese, Indigenous, and other cultures all developed their own separate star patterns across history. The oldest known star catalog, the <em>MUL.APIN</em>, was recorded in Babylon around 1200 BCE.</p>
-    </div>
-
-    <div class="card reveal">
-      <p><strong>Why do constellations only come out at night?</strong> They don't — the stars are always there. During the day, sunlight scatters so brilliantly through Earth's atmosphere that it overwhelms the faint light of distant stars. The sky fills with blue scattered light, completely drowning out the dim stars. At night, with the Sun below the horizon, that overwhelming light source is gone, and our eyes can finally detect the faint photons that have traveled light-years to reach us.</p>
-      <p>During a total solar eclipse, when the Moon briefly blocks the Sun's disc, stars and planets <em>do</em> become briefly visible in the middle of the day — a breathtaking reminder that they never actually go anywhere.</p>
-    </div>
-  </section>
-
-  <section id="faq">
-    <div class="reveal">
-      <p class="section-label">Common Questions</p>
-      <h2 class="gradient-text">Brightness, Distance & More</h2>
-      <div class="divider"></div>
-    </div>
-
-    <details class="reveal">
-      <summary>Why are some stars bright and others dim?</summary>
-      <div class="acc-body">
-        <p>A star's apparent brightness depends on two factors: <strong>how intrinsically luminous it is</strong> (its true energy output) and <strong>how far away it is</strong>. Brightness falls off with the square of distance — a star twice as far looks four times dimmer.</p>
-        <p>The brightest star in the night sky, <strong>Sirius</strong>, is dazzling partly because it truly is very luminous (about 25 times more luminous than the Sun) and partly because it is close — just 8.6 light-years away. Meanwhile, many red giant stars are intrinsically millions of times more luminous than Sirius but appear dim because they are thousands of light-years away.</p>
-        <p>Astronomers use two measurements: <em>apparent magnitude</em> (how bright a star looks from Earth) and <em>absolute magnitude</em> (how bright it would appear if placed exactly 32.6 light-years away). The difference reveals the star's distance. This is exactly the principle Henrietta Leavitt's Period-Luminosity Law leveraged — turning variable stars into cosmic distance markers.</p>
-      </div>
-    </details>
-
-    <details class="reveal">
-      <summary>How far away are the stars?</summary>
-      <div class="acc-body">
-        <p>Stellar distances are so vast that astronomers use the <strong>light-year</strong> — the distance light travels in one year, about 5.88 trillion miles (9.46 trillion km). The nearby stars in our galactic neighborhood are a few to a few dozen light-years away. The most distant stars in the Milky Way are tens of thousands of light-years away. The Andromeda Galaxy — the farthest object visible to the naked eye — is about <strong>2.537 million light-years</strong> away.</p>
-        <p>The most distant individual star ever observed, named <strong>Earendel</strong>, was detected by the James Webb Space Telescope at a staggering distance of approximately <strong>12.9 billion light-years</strong> — meaning we're seeing it as it was less than a billion years after the Big Bang.</p>
-      </div>
-    </details>
-
-    <details class="reveal">
-      <summary>How long do stars live?</summary>
-      <div class="acc-body">
-        <p>A star's lifespan is determined by its mass — and counterintuitively, more massive stars live <em>shorter</em> lives. They burn through their fuel at a furious rate. A star 20 times the Sun's mass may live only a few million years before exploding as a supernova. Our Sun is middle-aged at about 4.6 billion years old, with roughly 5 billion years left. The smallest red dwarf stars — a fraction of the Sun's mass — are so frugal with their fuel that they could theoretically burn for <strong>trillions of years</strong>, far longer than the current age of the universe.</p>
-      </div>
-    </details>
-
-    <details class="reveal">
-      <summary>What happens when a star dies?</summary>
-      <div class="acc-body">
-        <p>A star's death depends on its mass. Stars like our Sun will eventually swell into a <strong>red giant</strong>, consuming the inner planets, then shed their outer layers as a glowing <strong>planetary nebula</strong>, leaving behind a dense, Earth-sized core called a <strong>white dwarf</strong>. More massive stars end in a spectacular <strong>supernova</strong> explosion, briefly outshining entire galaxies. The core collapses into either a <strong>neutron star</strong> (an object the size of a city with the mass of the Sun) or, if massive enough, a <strong>black hole</strong> — where gravity becomes so intense that not even light can escape.</p>
-      </div>
-    </details>
-
-    <details class="reveal">
-      <summary>What color are stars?</summary>
-      <div class="acc-body">
-        <p>Stars come in a range of colors that directly reflect their surface temperature. Cooler stars (around 3,000–4,000 K) appear <strong>red or orange</strong> — like Betelgeuse or Antares. Medium-temperature stars like our Sun appear <strong>yellow-white</strong>. Very hot stars (above 10,000 K) shine brilliant <strong>blue-white</strong> — like Rigel or Sirius. The color sequence, from coolest to hottest, is: red → orange → yellow → white → blue-white. Astronomers classify stars using the <em>OBAFGKM</em> spectral type system (remembered with the mnemonic "Oh Be A Fine Girl/Guy Kiss Me").</p>
-      </div>
-    </details>
-
-    <details class="reveal">
-      <summary>Do stars move?</summary>
-      <div class="acc-body">
-        <p>Yes — all stars are in motion, orbiting the center of their galaxy. Our Sun, along with everything in the solar system, orbits the Milky Way's center at roughly <strong>514,000 mph (828,000 km/h)</strong>, taking about 225–250 million years to complete one orbit (called a <em>cosmic year</em>). Individual stars also have their own proper motions. However, these movements are so small relative to their enormous distances that the constellations look virtually identical to how they appeared to ancient astronomers thousands of years ago. Over hundreds of thousands of years, though, the familiar constellation shapes do gradually shift and distort.</p>
-      </div>
-    </details>
-  </section>
-
-  <footer>
-    <p>Made with light &amp; curiosity &nbsp;·&nbsp; In honor of <span>Henrietta Swan Leavitt</span> (1868–1921)</p>
-    <p style="margin-top:0.5rem;font-size:0.7rem;">The woman who measured the universe.</p>
-  </footer>
-
+<section>
+<h2>Twelve questions about stars</h2>
+<div class="qa">
+<div>
+<details><summary>What is a star?</summary><p>A star is a huge ball of hot, glowing gas (plasma) held together by its own gravity. In the core, hydrogen atoms fuse into helium, releasing the energy that makes the star shine. Our Sun is a star.</p></details>
+<details><summary>What are stars made of?</summary><p>Mostly hydrogen, about <span class="big">73%</span> by mass, and helium, about <span class="big">25%</span>. The remaining couple of percent is heavier elements such as oxygen, carbon and iron, which earlier generations of stars made and scattered when they died.</p></details>
+<details><summary>How many stars can you see at night?</summary><p>Under a dark, clear sky with no moon, you can see roughly <span class="big">2,000–2,500</span> at once. Over the whole year and both hemispheres, about 9,000 stars are visible to the naked eye. City lights cut this to a few dozen.</p></details>
+<details><summary>How many stars are there?</summary><p>The Milky Way holds an estimated <span class="big">100 to 400 billion</span> stars. With perhaps a trillion or more galaxies in the observable universe, astronomers estimate somewhere around 10²² to 10²⁴ stars. Nobody has counted them, so these are estimates.</p></details>
+<details><summary>What is the closest star to Earth?</summary><p>The Sun, at about 150 million km, light takes 8⅓ minutes to reach us. The nearest star beyond the Sun is <span class="big">Proxima Centauri</span>, 4.24 light-years away, about 40 trillion km. It is a small red dwarf too dim to see without a telescope.</p></details>
+<details><summary>Is the Sun the largest star?</summary><p>No. The Sun is an average-sized star. Red supergiants like UY Scuti are more than a thousand times wider, and if one sat where the Sun is, it would swallow the orbits of the inner planets and beyond. Exact sizes of these giants are debated. Many stars are smaller than the Sun, too.</p></details>
 </div>
+<div>
+<details><summary>Why do stars twinkle?</summary><p>Starlight travels for years in a straight line, then meets Earth’s moving, uneven air. Pockets of warm and cool air bend it back and forth, so the star seems to flicker and shift color. Stars are so far away that they look like single points, which makes the effect strong. Planets look like tiny discs and twinkle far less. This is called scintillation. From space, stars don’t twinkle.</p></details>
+<details><summary>What are constellations?</summary><p>Patterns people have traced between stars, like connect-the-dots pictures. The International Astronomical Union recognizes <span class="big">88</span> constellations that divide up the whole sky. The stars in a pattern are usually at very different distances and aren’t related.
+<br><button id="tg">Connect Orion’s stars</button><canvas id="ori" width="260" height="260" aria-label="Seven stars of Orion"></canvas></p></details>
+<details><summary>Why do stars only come out at night?</summary><p>They don’t. Stars are up all day, but the Sun lights up our atmosphere and scatters blue light everywhere, drowning out their faint glow. At night our side of Earth faces away from the Sun, the sky goes dark, and the stars show. Astronauts can see them in daytime, since there’s no air to scatter the light.</p></details>
+<details><summary>Why are some stars bright and others dim?</summary><p>Three things: how much light the star truly puts out, how far away it is, and how much dust sits in between. Sirius is the brightest star at night partly because it’s close, only 8.6 light-years away, and it’s about 25 times more luminous than the Sun. A far-off star can be thousands of times more powerful and still look faint. Astronomers separate apparent brightness from true brightness, and Leavitt’s work let them do so for distant stars.</p></details>
+<details><summary>How far away are the stars?</summary><p>Very. One light-year, the distance light covers in a year, is about <span class="big">9.46 trillion km</span>. Nearby stars are 4 to a few dozen light-years away. Most stars you can see are within a few thousand. The Milky Way is about 100,000 light-years across, and the Andromeda galaxy is around 2.5 million light-years away.</p></details>
+<details><summary>How do we measure those distances?</summary><p>For close stars, astronomers watch how a star seems to shift as Earth orbits the Sun, called parallax. Farther out, they use Cepheids and Leavitt’s rule. Beyond that, other markers like exploding stars take over.</p></details>
+</div>
+</div>
+</section>
+<div class="sum">
+<button id="sm" aria-expanded="false" aria-controls="smp">Summarized</button>
+<div id="smp"><div><div class="sbox">
+<h2>The whole page, summarized</h2>
+<ul>
+<li><strong>Who she was:</strong> Henrietta Swan Leavitt (1868–1921) was an American astronomer who joined Harvard College Observatory in 1893 as a “computer,” measuring photographic plates. She found about 2,400 variable stars and became head of photographic brightness measurements.</li>
+<li><strong>Her discovery:</strong> In 1912 she showed that brighter Cepheid variable stars pulse more slowly. Since the period reveals true brightness, comparing it with how dim the star looks gives its distance. Hubble used this in 1924 to show Andromeda is a separate galaxy.</li>
+<li><strong>What a star is:</strong> A ball of hot plasma held together by gravity and powered by hydrogen fusing into helium. Stars are about 73% hydrogen, 25% helium and 2% heavier elements.</li>
+<li><strong>How many:</strong> You can see about 2,000–2,500 at once in a dark sky, and about 9,000 across the year. The Milky Way holds 100–400 billion, and the observable universe perhaps 10²² to 10²⁴.</li>
+<li><strong>Near and big:</strong> The closest star is the Sun, then Proxima Centauri at 4.24 light-years. The Sun is only average; red supergiants like UY Scuti are over a thousand times wider.</li>
+<li><strong>Sky behavior:</strong> Stars twinkle because moving air bends their light. They are out in the day too, but sunlight scattered by the air hides them. Constellations are 88 patterns we trace across stars that are usually unrelated.</li>
+<li><strong>Bright and dim:</strong> Brightness depends on true power, distance and dust. A light-year is about 9.46 trillion km, and the Milky Way is about 100,000 light-years across. Distances are measured by parallax for near stars and by Cepheids farther out.</li>
+</ul>
+</div></div></div>
+</div>
+</main>
 
 <script>
-  const canvas = document.getElementById('starCanvas');
-  const ctx = canvas.getContext('2d');
-  let W, H, stars = [];
+(function(){
+var rm=matchMedia('(prefers-reduced-motion:reduce)').matches;
+var sm=document.getElementById('sm'),smp=document.getElementById('smp');
+var mx=-999,my=-999,tx=-999,ty=-999,px0=0,py0=0,hasM=false;
+var glow=document.getElementById('glow'),neb=document.getElementById('neb');
+var rv=[];
+function add(sel,c){[].forEach.call(document.querySelectorAll(sel),function(el){el.classList.add('rv',c);rv.push(el);});}
+add('header > *','l');
+add('section:not(.right) > h2, section:not(.right) > p','l');
+add('section.right > h2, section.right > p','r');
+[].forEach.call(document.querySelectorAll('.tl li'),function(li,i){li.classList.add('rv',i%2?'r':'l');rv.push(li);});
+[].forEach.call(document.querySelectorAll('.qa > div'),function(col,ci){[].forEach.call(col.children,function(d,i){d.classList.add('rv',ci?'r':'l');d.style.transitionDelay=(i*80)+'ms';rv.push(d);});});
+if(rm||!('IntersectionObserver' in window)){rv.forEach(function(e){e.classList.add('in')});}
+else{var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.12,rootMargin:'0px 0px -6% 0px'});rv.forEach(function(e){io.observe(e)});}
+var hl=[].slice.call(document.querySelectorAll('details,.tl li,.spot,.sbox'));
+hl.forEach(function(e){if(e.tagName!=='H1')e.classList.add('hl')});
+var tt=[].slice.call(document.querySelectorAll('h1,h2,p,summary,.tl time,.tl li,footer,button,.sbox li'));
+var isNear=false,act=0,lx=-999,ly=-999;
+function upd(){var n=false;
+if(lx>-900){for(var i=0;i<tt.length;i++){var r=tt[i].getBoundingClientRect();if(r.width<2||r.height<2)continue;if(!smp.classList.contains('open')&&tt[i].closest('#smp'))continue;var dx=Math.max(r.left-lx,0,lx-r.right),dy=Math.max(r.top-ly,0,ly-r.bottom);if(dx*dx+dy*dy<25){n=true;break;}}}
+isNear=n;document.body.classList.toggle('near',n);glow.style.opacity=n?1:0;
+hl.forEach(function(el){if(n){var r=el.getBoundingClientRect();el.style.setProperty('--mx',(lx-r.left)+'px');el.style.setProperty('--my',(ly-r.top)+'px');}else{el.style.setProperty('--mx','-9999px');el.style.setProperty('--my','-9999px');}});}
+addEventListener('pointermove',function(e){tx=lx=e.clientX;ty=ly=e.clientY;if(!hasM){mx=tx;my=ty;hasM=true;}
+glow.style.transform='translate3d('+tx+'px,'+ty+'px,0)';upd();if(rm)frame(0);});
+addEventListener('scroll',upd,{passive:true});
+document.documentElement.addEventListener('pointerleave',function(){lx=ly=-999;upd();});
 
-  function resize() {
-    W = canvas.width = window.innerWidth;
-    H = canvas.height = window.innerHeight;
-  }
+var sky=document.getElementById('sky'),sx=sky.getContext('2d'),S=[],SH=[];
+function rs(){var d=1;sky.width=innerWidth;sky.height=innerHeight;S=[];var n=Math.min(380,Math.round(innerWidth*innerHeight/4200));for(var i=0;i<n;i++){var z=Math.random();S.push({x:Math.random()*sky.width,y:Math.random()*sky.height,z:z*.8+.2,r:Math.random()*1.2+.3,p:Math.random()*6.28,s:Math.random()*1.5+.4,h:Math.random()<.2?'255,200,140':'200,220,255'});}}
+rs();addEventListener('resize',function(){rs();if(rm)frame(0)});
+function frame(t){
+t/=1000;var w=sky.width,h=sky.height,sy=scrollY;
+mx+=(tx-mx)*.14;my+=(ty-my)*.14;act+=((isNear?1:0)-act)*.12;if(rm)act=isNear?1:0;
+px0+=((tx>-900?tx-w/2:0)-px0)*.05;py0+=((tx>-900?ty-h/2:0)-py0)*.05;
+neb.style.transform='translate3d('+(-px0*.04)+'px,'+(-py0*.04-sy*.03)+'px,0)';
+sx.clearRect(0,0,w,h);
+var near=[];
+for(var i=0;i<S.length;i++){var a=S[i];
+var px=((a.x-px0*.04*a.z)%w+w)%w,py=((a.y-sy*.18*a.z-py0*.04*a.z)%h+h)%h;
+var al=(.3+.7*(.5+.5*Math.sin(t*a.s+a.p)))*(.35+.65*a.z);
+var d=Math.hypot(px-mx,py-my),b=(d<170?1-d/170:0)*act;
+if(b>0){al=Math.min(1,al+b);if(near.length<18)near.push([px,py,b]);}
+var r=a.r*(.6+.7*a.z)*(1+b*1.8);
+if(b>.3){sx.fillStyle='rgba(127,224,255,'+(b*.18)+')';sx.beginPath();sx.arc(px,py,r*5,0,6.283);sx.fill();}
+sx.fillStyle='rgba('+(b>.3?'255,244,214':a.h)+','+al+')';sx.beginPath();sx.arc(px,py,r,0,6.283);sx.fill();}
+sx.lineWidth=1;
+for(var i=0;i<near.length;i++)for(var j=i+1;j<near.length;j++){var dd=Math.hypot(near[i][0]-near[j][0],near[i][1]-near[j][1]);if(dd<140){sx.strokeStyle='rgba(127,224,255,'+(.55*Math.min(near[i][2],near[j][2])*(1-dd/140))+')';sx.beginPath();sx.moveTo(near[i][0],near[i][1]);sx.lineTo(near[j][0],near[j][1]);sx.stroke();}}
+if(!rm){if(Math.random()<.006)SH.push({x:Math.random()*w,y:Math.random()*h*.5,vx:10+Math.random()*6,vy:3+Math.random()*3,l:1});
+SH=SH.filter(function(q){q.x+=q.vx;q.y+=q.vy;q.l-=.014;if(q.l<=0)return false;var g=sx.createLinearGradient(q.x,q.y,q.x-q.vx*9,q.y-q.vy*9);g.addColorStop(0,'rgba(255,255,255,'+q.l+')');g.addColorStop(1,'rgba(255,255,255,0)');sx.strokeStyle=g;sx.lineWidth=1.6;sx.beginPath();sx.moveTo(q.x,q.y);sx.lineTo(q.x-q.vx*9,q.y-q.vy*9);sx.stroke();return true;});
+requestAnimationFrame(function(n){frame(n)});}
+}
+frame(0);
 
-  function initStars(n = 320) {
-    stars = Array.from({length: n}, () => ({
-      x: Math.random() * W,
-      y: Math.random() * H,
-      r: Math.random() * 1.6 + 0.2,
-      alpha: Math.random() * 0.8 + 0.2,
-      speed: Math.random() * 0.012 + 0.003,
-      phase: Math.random() * Math.PI * 2,
-      color: ['#ffffff','#ffe9b0','#b0d0ff','#ffd6f0'][Math.floor(Math.random()*4)]
-    }));
-  }
-
-  function drawStars(t) {
-    ctx.clearRect(0, 0, W, H);
-    stars.forEach(s => {
-      const a = s.alpha * (0.5 + 0.5 * Math.sin(t * s.speed + s.phase));
-      ctx.beginPath();
-      ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
-      ctx.fillStyle = s.color;
-      ctx.globalAlpha = a;
-      ctx.fill();
-    });
-    ctx.globalAlpha = 1;
-  }
-
-  let shootingStar = null;
-  function launchShootingStar() {
-    shootingStar = {
-      x: Math.random() * W * 0.8,
-      y: Math.random() * H * 0.3,
-      len: 120 + Math.random() * 80,
-      speed: 8 + Math.random() * 6,
-      alpha: 1,
-      angle: Math.PI / 5 + Math.random() * 0.3
-    };
-  }
-  setInterval(launchShootingStar, 4000 + Math.random() * 6000);
-
-  function drawShootingStar() {
-    if (!shootingStar) return;
-    const s = shootingStar;
-    const ex = s.x + Math.cos(s.angle) * s.len;
-    const ey = s.y + Math.sin(s.angle) * s.len;
-    const grad = ctx.createLinearGradient(s.x, s.y, ex, ey);
-    grad.addColorStop(0, `rgba(255,255,255,0)`);
-    grad.addColorStop(1, `rgba(255,255,255,${s.alpha})`);
-    ctx.beginPath();
-    ctx.moveTo(s.x, s.y);
-    ctx.lineTo(ex, ey);
-    ctx.strokeStyle = grad;
-    ctx.lineWidth = 1.5;
-    ctx.stroke();
-    s.x += Math.cos(s.angle) * s.speed;
-    s.y += Math.sin(s.angle) * s.speed;
-    s.alpha -= 0.015;
-    if (s.alpha <= 0) shootingStar = null;
-  }
-
-  function animate(t) {
-    drawStars(t * 0.001);
-    drawShootingStar();
-    requestAnimationFrame(animate);
-  }
-
-  resize();
-  initStars();
-  requestAnimationFrame(animate);
-  window.addEventListener('resize', () => { resize(); initStars(); });
-
-  const reveals = document.querySelectorAll('.reveal');
-  const io = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        e.target.classList.add('visible');
-        io.unobserve(e.target);
-      }
-    });
-  }, { threshold: 0.1 });
-  reveals.forEach(el => io.observe(el));
+var oc=document.getElementById('ori'),ox=oc.getContext('2d'),on=false;
+var O=[[80,40,'Betelgeuse',5],[215,55,'Bellatrix',3.5],[120,150,'Alnitak',3],[150,144,'Alnilam',3.4],[178,138,'Mintaka',3],[95,235,'Saiph',3],[222,225,'Rigel',5]];
+var L=[[0,2],[1,4],[2,3],[3,4],[2,5],[4,6]];
+function dor(){ox.clearRect(0,0,260,260);if(on){ox.strokeStyle='rgba(127,224,255,.7)';ox.lineWidth=1.2;L.forEach(function(l){ox.beginPath();ox.moveTo(O[l[0]][0],O[l[0]][1]);ox.lineTo(O[l[1]][0],O[l[1]][1]);ox.stroke();});}
+O.forEach(function(s,i){ox.fillStyle=i==0?'#ffb070':i==6?'#bfe0ff':'#fff';ox.shadowColor=ox.fillStyle;ox.shadowBlur=10;ox.beginPath();ox.arc(s[0],s[1],s[3],0,6.283);ox.fill();ox.shadowBlur=0;if(on){ox.fillStyle='#9aa6cf';ox.font='11px IBM Plex Sans,sans-serif';ox.fillText(s[2],s[0]+9,s[1]+4);}});}
+document.getElementById('tg').onclick=function(){on=!on;this.textContent=on?'Hide the lines':'Connect Orion\u2019s stars';dor();};
+[].forEach.call(document.querySelectorAll('.sbox li'),function(l,i){l.style.setProperty('--i',i)});
+sm.onclick=function(){var o=smp.classList.toggle('open');sm.setAttribute('aria-expanded',o);if(o)setTimeout(function(){smp.scrollIntoView({behavior:rm?'auto':'smooth',block:'end'})},300);};
+dor();
+})();
 </script>
-
 </body>
 </html>
