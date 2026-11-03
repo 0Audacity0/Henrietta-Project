@@ -27,6 +27,7 @@ p{max-width:62ch}
 .rv{opacity:0;transition:opacity 1s ease,transform 1s cubic-bezier(.2,.7,.2,1)}
 .rv.l{transform:translateX(-80px)}.rv.r{transform:translateX(80px)}
 .rv.in{opacity:1;transform:none}
+body.sliding,body.sliding *{-webkit-user-select:none;user-select:none;cursor:grabbing}
 body.near .hl:hover{background-image:radial-gradient(320px circle at var(--mx) var(--my),rgba(127,224,255,.13),transparent 70%)}
 body.near .hl:hover summary{color:var(--gold)}
 section.right h2,section.right p{margin-left:auto;text-align:right}
@@ -74,15 +75,34 @@ footer{margin-top:90px;color:var(--mute);font-size:.88rem}
 .sbox strong{display:block;font:italic 600 1.3rem Fraunces,Georgia,serif;color:var(--gold);margin-bottom:2px}
 #smp.open .sbox li{opacity:1;transform:none;transition-delay:calc(var(--i)*110ms + 350ms)}
 @media (max-width:760px){.sbox{padding:28px 20px 10px}#sm{font-size:1.4rem;padding:16px 36px 16px 60px}}
+
+html{scrollbar-width:none}
+html::-webkit-scrollbar,body::-webkit-scrollbar{display:none}
+#rail{-webkit-user-select:none;user-select:none;position:fixed;right:4px;top:7vh;bottom:7vh;width:22px;z-index:3;cursor:pointer;touch-action:none}
+#rail::before{content:"";position:absolute;left:50%;top:0;bottom:0;width:1px;background:linear-gradient(180deg,transparent,rgba(125,145,235,.55) 10%,rgba(125,145,235,.55) 90%,transparent)}
+#fill{position:absolute;left:50%;top:0;width:2px;margin-left:-1px;height:0;border-radius:2px;background:linear-gradient(180deg,rgba(127,224,255,0),var(--cyan) 30%,var(--gold));box-shadow:0 0 12px rgba(255,193,94,.7)}
+.mk{position:absolute;left:50%;width:7px;height:7px;margin:-3.5px 0 0 -3.5px;border-radius:50%;background:#2c3768;transition:background .4s,box-shadow .4s,transform .4s}
+.mk.on{background:var(--cyan);box-shadow:0 0 10px var(--cyan)}
+.mk span{position:absolute;right:18px;top:50%;transform:translate(10px,-50%);white-space:nowrap;font:italic 300 1rem Fraunces,Georgia,serif;color:var(--light);opacity:0;transition:opacity .3s,transform .3s;text-shadow:0 0 12px var(--ink),0 0 4px var(--ink)}
+#rail:hover .mk span{opacity:1;transform:translate(0,-50%)}
+#thumb{position:absolute;left:50%;top:0;width:0;height:0;will-change:transform}
+#tail{position:absolute;left:-1px;bottom:22px;width:2px;height:0;background:linear-gradient(0deg,rgba(255,236,190,.95),rgba(255,193,94,0));border-radius:2px}
+#tail.up{bottom:auto;top:22px;background:linear-gradient(180deg,rgba(255,236,190,.95),rgba(255,193,94,0))}
+#star{position:absolute;left:-7px;top:-22px;width:14px;height:44px;border-radius:999px;background:#fff;box-shadow:0 0 16px rgba(255,255,255,.55),0 0 28px rgba(200,220,255,.35),inset 0 0 0 1px rgba(200,215,255,.5)}
+#star::before{content:"";position:absolute;left:3px;top:5px;width:3px;height:14px;border-radius:3px;background:rgba(150,170,230,.45)}
+#halo{position:absolute;left:-26px;top:-26px;width:52px;height:52px;border-radius:50%;background:radial-gradient(circle,rgba(220,232,255,.3),transparent 68%);transition:transform .3s}
+#rail.drag #halo{transform:scale(1.5)}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}#neb{animation:none}.rv{opacity:1;transform:none;transition:none}}
 </style>
 </head>
 <body>
 <div id="neb" aria-hidden="true"></div><div id="glow" aria-hidden="true"></div>
+<div id="rail" aria-hidden="true"><div id="fill"></div><div id="thumb"><div id="tail"></div><div id="halo"></div><div id="star"></div></div></div>
 <canvas id="sky" aria-hidden="true"></canvas>
 <main>
 <header>
 <h1 class="spot">MY Henrietta Swan Leavitt <em>project</em> </h1>
+
 
 </header>
 
@@ -207,6 +227,31 @@ O.forEach(function(s,i){ox.fillStyle=i==0?'#ffb070':i==6?'#bfe0ff':'#fff';ox.sha
 document.getElementById('tg').onclick=function(){on=!on;this.textContent=on?'Hide the lines':'Connect Orion\u2019s stars';dor();};
 [].forEach.call(document.querySelectorAll('.sbox li'),function(l,i){l.style.setProperty('--i',i)});
 sm.onclick=function(){var o=smp.classList.toggle('open');sm.setAttribute('aria-expanded',o);if(o)setTimeout(function(){smp.scrollIntoView({behavior:rm?'auto':'smooth',block:'end'})},300);};
+var rail=document.getElementById('rail'),fill=document.getElementById('fill'),thumb=document.getElementById('thumb'),tail=document.getElementById('tail'),star=document.getElementById('star');
+var mks=[],RH=0,DH=0,lastS=0,vs=0,actT=0;
+function doc(){return Math.max(1,document.documentElement.scrollHeight-innerHeight)}
+function lay(){RH=rail.clientHeight;DH=doc();mks.forEach(function(m){var p=Math.min(1,Math.max(0,(m.el.getBoundingClientRect().top+scrollY-(m.top?0:0))/DH));m.p=p;m.top=m.el.getBoundingClientRect().top+scrollY;m.d.style.top=(p*RH)+'px';});upr();}
+function mk(el,name){var d=document.createElement('div');d.className='mk';d.innerHTML='<span>'+name+'</span>';rail.appendChild(d);mks.push({el:el,d:d,p:0,top:0});}
+mk(document.querySelector('h1'),'Top');
+[].forEach.call(document.querySelectorAll('section'),function(sec){mk(sec,sec.querySelector('h2').textContent.replace(/\?$/,''));});
+mk(document.querySelector('.sum'),'Summarized');
+function upr(){var p=Math.min(1,Math.max(0,scrollY/DH)),y=p*RH;
+thumb.style.transform='translate3d(0,'+y+'px,0)';fill.style.height=y+'px';
+mks.forEach(function(m){m.d.classList.toggle('on',scrollY+innerHeight*.45>=m.top);});}
+function rl(){if(document.documentElement.scrollHeight-innerHeight!==DH)lay();var d=scrollY-lastS;lastS=scrollY;
+vs+=(d-vs)*.25;if(rm)vs=0;
+var t=Math.min(150,Math.abs(vs)*5);tail.style.height=t+'px';tail.classList.toggle('up',vs>0);
+star.style.transform='scale('+(1+Math.min(.5,Math.abs(vs)*.04))+')';
+if(Math.abs(vs)>.4){rail.classList.add('act');clearTimeout(actT);actT=setTimeout(function(){rail.classList.remove('act')},900);}
+if(!rm)requestAnimationFrame(rl);}
+addEventListener('scroll',upr,{passive:true});addEventListener('resize',lay);addEventListener('load',lay);
+function jump(e){var r=rail.getBoundingClientRect(),p=Math.min(1,Math.max(0,(e.clientY-r.top)/r.height));scrollTo({top:p*DH,behavior:'instant'});}
+rail.addEventListener('mousedown',function(e){e.preventDefault()});
+rail.addEventListener('selectstart',function(e){e.preventDefault()});
+rail.addEventListener('pointerdown',function(e){e.preventDefault();getSelection().removeAllRanges();rail.setPointerCapture(e.pointerId);rail.classList.add('drag');document.body.classList.add('sliding');jump(e);});
+rail.addEventListener('pointermove',function(e){if(rail.classList.contains('drag'))jump(e);});
+['pointerup','pointercancel'].forEach(function(n){rail.addEventListener(n,function(){rail.classList.remove('drag');document.body.classList.remove('sliding')})});
+lay();rl();
 dor();
 })();
 </script>
